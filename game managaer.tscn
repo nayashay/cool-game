@@ -23,7 +23,7 @@ func _on_timer_timeout() -> void:
 		return
 	var flyobject :Area2D = flyscene.instantiate()
 	get_viewport().add_child(flyobject)
-	flyobject.global_position=Vector2(1152.0,421.0)
+	flyobject.global_position=Vector2(1152.0,550.0)
 "
 
 [node name="GameManagaer" type="Node2D" unique_id=629176444]

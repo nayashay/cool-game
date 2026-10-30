@@ -27,7 +27,7 @@ size = Vector2(114, 60)
 script = SubResource("GDScript_c3v2f")
 
 [node name="WeakFly" type="Sprite2D" parent="." unique_id=1047202510]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_l2ofb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1879437176]
