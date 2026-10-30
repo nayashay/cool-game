@@ -22,7 +22,7 @@ func _on_timer_timeout() -> void:
 	if flycount >1 :
 		return
 	var flyobject :Area2D = flyscene.instantiate()
-	get_viewport().add_child(flyobject)
+	get_viewport().get_tree().current_scene.add_child(flyobject)
 	flyobject.global_position=Vector2(1152.0,550.0)
 "
 

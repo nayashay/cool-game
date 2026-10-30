@@ -18,6 +18,14 @@ func _process(delta: float) -> void:
 	if global_position.x <0:
 		GameManagaer.set(\"flycount\",GameManagaer.get(\"flycount\")-1)
 		queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		call_deferred(\"reset_game\")
+
+func reset_game():
+	get_tree().reload_current_scene()
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72qmq"]
@@ -34,3 +42,5 @@ texture = ExtResource("1_l2ofb")
 position = Vector2(0.5, 0)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_72qmq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
