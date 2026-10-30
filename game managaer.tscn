@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://da87v4mnm47i5"]
+
+[ext_resource type="PackedScene" uid="uid://dr8141cgjxt2v" path="res://object.tscn" id="1_tqiy2"]
+
+[sub_resource type="GDScript" id="GDScript_rk34b"]
+script/source = "extends Node2D
+
+var flycount :int=0
+@export var flyscene : PackedScene
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_timer_timeout() -> void:
+	if flycount >1 :
+		return
+	var flyobject :Area2D = flyscene.instantiate()
+	get_viewport().add_child(flyobject)
+	flyobject.global_position=Vector2(1152.0,421.0)
+"
+
+[node name="GameManagaer" type="Node2D" unique_id=629176444]
+script = SubResource("GDScript_rk34b")
+flyscene = ExtResource("1_tqiy2")
+
+[node name="Timer" type="Timer" parent="." unique_id=544920865]
+wait_time = 2.6999999999999997
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

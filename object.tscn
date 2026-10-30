@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dr8141cgjxt2v"]
+
+[ext_resource type="Texture2D" uid="uid://c6trxt65jeoej" path="res://Sprites/weak fly.png" id="1_l2ofb"]
+
+[sub_resource type="GDScript" id="GDScript_c3v2f"]
+script/source = "extends Area2D
+
+@export var speed : float=250.0
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	GameManagaer.set(\"flycount\", GameManagaer.get(\"flycount\") + 1)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	global_position.x -= speed * delta
+	if global_position.x <0:
+		GameManagaer.set(\"flycount\",GameManagaer.get(\"flycount\")-1)
+		queue_free()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72qmq"]
+size = Vector2(114, 60)
+
+[node name="Object" type="Area2D" unique_id=143521836]
+script = SubResource("GDScript_c3v2f")
+
+[node name="WeakFly" type="Sprite2D" parent="." unique_id=1047202510]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_l2ofb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1879437176]
+position = Vector2(0.5, 0)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_72qmq")

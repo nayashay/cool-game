@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://uek7y7ba13ah"]
+
+[ext_resource type="Script" uid="uid://b43cpjldkmnh1" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://cesnmeuda85sn" path="res://Sprites/5c94902e34770-Cute Banana Cartoon Vector Character tiny.png" id="2_i3pqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72qmq"]
+size = Vector2(148, 283)
+
+[node name="Player" type="CharacterBody2D" unique_id=1575466434]
+script = ExtResource("1_onrkg")
+
+[node name="Banana runner" type="Sprite2D" parent="." unique_id=232306911]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_i3pqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=364527398]
+position = Vector2(-11, 9.5)
+shape = SubResource("RectangleShape2D_72qmq")
